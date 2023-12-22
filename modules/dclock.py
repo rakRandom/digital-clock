@@ -6,17 +6,11 @@ class DClock:
     def __init__(self, game):
         self.game = game
 
-        self.week_days = ("Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo")
-        self.months = ("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro")
+        self.week_days = DCLOCK_ENG_WEEK_DAYS
+        self.months = DCLOCK_ENG_MONTHS
 
         # Texts
-        self.title_label = Label(self.game,
-                                 (WIDTH // 2, 50),
-                                 TITLE_FONT,
-                                 "A Simple Digital Clock",
-                                 True,
-                                 self.game.color2)
-
+        self.title_label = Label(self.game, DCLOCK_TITLE_POS, TITLE_FONT, DCLOCK_TITLE_ENG_TEXT, True, self.game.color2)
         self.get_hour()
         self.get_date()
 
@@ -24,9 +18,9 @@ class DClock:
         l_time = time.localtime()
 
         self.hour_label = Label(self.game,
-                                (WIDTH // 2, 150),
+                                HOURL_POS,
                                 HOUR_FONT,
-                                f"{l_time.tm_hour}h {l_time.tm_min}m {l_time.tm_sec}s",
+                                f"{l_time.tm_hour} : {l_time.tm_min} : {l_time.tm_sec}",
                                 True,
                                 self.game.color2)
 
@@ -36,11 +30,14 @@ class DClock:
         month = self.months[l_time.tm_mon - 1]
 
         self.date_label = Label(self.game,
-                                (WIDTH // 2, 220),
+                                DATEL_POS,
                                 DATE_FONT,
-                                f"{week_day}, {l_time.tm_mday} de {month} de {l_time.tm_year}",
+                                f"{week_day} - {l_time.tm_mday} / {month} / {l_time.tm_year}",
                                 True,
                                 self.game.color2)
+
+    def update(self):
+        pass
 
     def draw(self):
         # Writing the texts in the screen
