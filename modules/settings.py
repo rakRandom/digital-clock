@@ -29,11 +29,14 @@ DATEL_POS = (WIDTH // 2, 205)
 
 # Language
 LANGUAGE_TITLE_POS = (WIDTH // 2, 40)
+BACKB_POS = (35, 25)
 PTBRB_POS = (WIDTH // 2, 90)
 ENGB_POS = (WIDTH // 2, 130)
 FRAB_POS = (WIDTH // 2, 170)
 
 # Texts
+BACKB_TEXT = "Back"
+
 # PT-BR
 WINDOW_PTBR_CAPTION = "Relógio Digital"
 

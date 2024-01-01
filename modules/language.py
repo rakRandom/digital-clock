@@ -7,12 +7,17 @@ class Language:
         self.game = game
 
         self.title_label = Label(self.game, LANGUAGE_TITLE_POS, TITLE_FONT, LANGUAGE_TITLE_ENG_TEXT, True, self.game.color2)
+        self.back_btn = Button(self.game, BACKB_POS, BUTTON1_FONT, BACKB_TEXT, self.game.color2, self.game.color1)
         self.ptbr_btn = Button(self.game, PTBRB_POS, BUTTON1_FONT, PTBRB_ENG_TEXT, self.game.color2, self.game.color1)
         self.eng_btn = Button(self.game, ENGB_POS, BUTTON1_FONT, ENGB_ENG_TEXT, self.game.color2, self.game.color1)
         self.fra_btn = Button(self.game, FRAB_POS, BUTTON1_FONT, FRAB_ENG_TEXT, self.game.color2, self.game.color1)
 
     def update(self):
         # Hover effect
+        if self.back_btn.is_hovered():
+            self.back_btn.border = self.game.color2
+        else:
+            self.back_btn.border = None
         if self.ptbr_btn.is_hovered():
             self.ptbr_btn.border = self.game.color2
         else:
@@ -25,6 +30,10 @@ class Language:
             self.fra_btn.border = self.game.color2
         else:
             self.fra_btn.border = None
+
+        # Going back to clock
+        if self.back_btn.is_touched():
+            self.game.current_level -= 1
 
         # Changing language
         if self.ptbr_btn.is_touched():
@@ -101,6 +110,7 @@ class Language:
 
     def draw(self):
         self.title_label.draw()
+        self.back_btn.draw()
         self.ptbr_btn.draw()
         self.eng_btn.draw()
         self.fra_btn.draw()

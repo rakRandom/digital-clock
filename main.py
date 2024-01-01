@@ -97,6 +97,7 @@ class Main:
             self.levels[0].date_label.update_color(self.color2, self.color1)
 
             self.levels[1].title_label.update_color(self.color2, self.color1)
+            self.levels[1].back_btn.update_color(self.color2, self.color1)
             self.levels[1].ptbr_btn.update_color(self.color2, self.color1)
             self.levels[1].eng_btn.update_color(self.color2, self.color1)
             self.levels[1].fra_btn.update_color(self.color2, self.color1)
